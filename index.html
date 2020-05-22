@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2 v-once>it will not change {{product}}</h2>
+      <h2>it will change {{product}}</h2>
+      <ul>
+        <li v-for="todo in todolis">
+          <span v-if="todo[0].isok">{{todo[1].task}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+    </div>
+    <h1>here starts with the component</h1>
+
+    <div id="app-7">
+      <ol>
+        <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+          We also need to provide each component with a "key",
+          which will be explained later.
+        -->
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
+    </div>
+    <!-- here I am using the instance method property to increament and decreament property -->
+
+    <h1>here I am using the instance method to creament the cart value</h1>
+    <div id="app-8" class="cart">
+      <button v-on:click="addtocart">Add to cart</button>
+      <p>Cart({{ cart }})</p>
+      <h1>using reference(Refs)</h1>
+
+      <input type="text" ref="input" />
+      <button v-on:click="readRefs">submit</button>
+      <p>my favourite food is {{food}}</p>
+      <h1>computed properties</h1>
+      <!-- computed property saves the calculation in cache memory and gives the result without calculating everytime it is called. until the message is cahnged -->
+
+      <!-- in case of method same thing happens but method calculates the thing everytime it is called -->
+      <p>here the reverse message is {{reversemessage}}</p>
+      <!-- here I am using class binding -->
+      <div v-bind:class="classobject">
+        <p id="normal">this is a paragraph</p>
+      </div>
+      <input v-model="message" placeholder="edit me" />
+      <p>Message is: {{ message }}</p>
+      <input type="checkbox" v-model="checked" />
+      <label for="checkbox">{{ checked }}</label>
+      <br />
+      <input type="radio" id="one" value="One" v-model="picked" />
+      <br />
+      <label for="one">One</label>
+      <br />
+      <input type="radio" id="two" value="Two" v-model="picked" />
+      <label for="two">Two</label>
+      <br />
+      <span>Picked: {{ picked }}</span>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+.east west notrh {
+  background-color: blueviolet;
+}
+.east west {
+  background-color: brown;
+}
+.east {
+  background-color: black;
+}
+#normal {
+  color: red;
+}

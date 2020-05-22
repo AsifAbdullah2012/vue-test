@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first Vue app</title>
+    <title>My first Vue app in Component</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/vue"></script>
   </head>
@@ -34,7 +34,7 @@
         -->
         <todo-item
           v-for="item in groceryList"
-          v-bind:todo="item"
+          :todo="item"
           v-bind:key="item.id"
         ></todo-item>
       </ol>
